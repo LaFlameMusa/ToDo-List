@@ -34,9 +34,11 @@ export default class App extends Component {
   }
   
   deleteItem = (id) => {
+    //деструктуризация Массива
     this.setState(({ todoData }) => {
+      // idx = полученный индекс
       const idx = todoData.findIndex((el) => el.id === id);
-
+      //Создаем массив который состоит из элементов до удаленного и после удаленного.
       const newArray = [...todoData.slice(0, idx), ...todoData.slice(idx + 1)];
       return {
         todoData: newArray,
